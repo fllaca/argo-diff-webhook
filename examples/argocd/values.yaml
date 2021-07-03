@@ -1,0 +1,19 @@
+argo-cd:
+  enabled: true
+  configs:
+    secret:
+      # $ARGO_PWD=admin
+      # htpasswd -nbBC 10 "" $ARGO_PWD | tr -d ':\n' | sed 's/$2y/$2a/'
+      argocdServerAdminPassword: "$2a$10$2KZKSnYmcrJQMJk/SHEt2.m0QMOzNNx/zxJRa5HvKhbTYus8DY8D2"
+      argocdServerAdminPasswordMtime: "2020-09-01T10:11:12Z"
+
+  controller:
+    clusterAdminAccess:
+      enabled: true
+
+  server:
+    extraArgs:
+      - --insecure
+    config:
+      repositories: |
+        - url: https://github.com/fllaca/argo-diff-webhook
