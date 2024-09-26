@@ -1,3 +1,12 @@
 cert-manager:
   enabled: true
   installCRDs: true
+
+global:
+  podSecurityPolicy:
+    enabled: true
+
+  # Test change
+  extraEnv:
+   - name: SOME_VAR
+     value: 'test value'
